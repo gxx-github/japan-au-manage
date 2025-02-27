@@ -87,8 +87,11 @@ const EventList: React.FC = () => {
             address: address
         };
         try {
+            document.cookie = `access_token=${localStorage.getItem('token')};Secure; SameSite=None;Domain=crypato.com`;
+            document.cookie = `access_name=${localStorage.getItem('user')};Secure; SameSite=None;Domain=crypato.com`;
             const response = await fetch(`https://api.crypato.com/api/privasea/export`, {
                 method: "POST",
+                credentials: 'include',
                 headers: {
                     "Content-Type": "application/json",
                     // 如果需要，在这里添加认证头
