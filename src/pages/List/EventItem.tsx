@@ -33,9 +33,9 @@ const Eventevent: React.FC<EventeventProps> = ({ event, onEdit, onDelete, onDown
             </div>
 
             <div className={styles.actions}>
-                <button onClick={onEdit}>Edit</button>
-                <button onClick={onDelete}>Delete</button>
-                <button onClick={onDownLoad}>DownLoad</button>
+                <button onClick={onEdit}>編集</button>
+                <button onClick={onDelete}>削除</button>
+                <button onClick={onDownLoad}>ダウンロード</button>
             </div>
         </div>
     )

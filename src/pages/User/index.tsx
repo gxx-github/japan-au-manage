@@ -20,7 +20,6 @@ const UserDom: React.FC = () => {
   const [showAddForm, setShowAddForm] = useState(false); // 控制添加表单的显示
   //添加用户
   const handleAddUser = (newUser: Omit<User, 'id'>) => {
-    // setUsers([...users, { ...newUser, id: users.length + 1 }]);
     const Params = {
       "name": newUser.name,
       "pass_word": newUser.pass_word
@@ -31,7 +30,7 @@ const UserDom: React.FC = () => {
         if (res) {
           messageApi.open({
             type: 'success',
-            content: '添加成功',
+            content: '正常に追加されました',
           });
           setShowAddForm(false);
           getUserList()
@@ -57,7 +56,7 @@ const UserDom: React.FC = () => {
         if (res) {
           messageApi.open({
             type: 'success',
-            content: '修改成功',
+            content: '変更に成功しました',
           });
           setShowAddForm(false);
           getUserList()
@@ -81,7 +80,7 @@ const UserDom: React.FC = () => {
         if(res){
           messageApi.open({
             type: 'success',
-            content: '删除成功',
+            content: '削除されました',
           });
           getUserList()
         }
@@ -140,7 +139,7 @@ const UserDom: React.FC = () => {
         className="add-user-button"
         onClick={() => setShowAddForm(!showAddForm)}
       >
-        {showAddForm ? 'Cancel' : 'Add User'}
+        {showAddForm ? 'キャンセル' : 'ユーザー追加'}
       </button>
 
       {/* 添加用户表单 */}

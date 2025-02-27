@@ -42,7 +42,7 @@ const AddUserForm: React.FC<AddUserFormProps> = ({ onAddUser }) => {
               {showPassword ?<FaEye />: <FaEyeSlash /> } {/* 切换图标 */}
             </span>
           </div>
-          <button type="submit">Add User</button>
+          <button type="submit">ユーザー追加</button>
         </form>
       </div>
     );

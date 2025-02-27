@@ -123,7 +123,7 @@ const EventForm: React.FC<EventFormProps> = ({ event, onSubmit, onCancel }) => {
         <form className={styles["upload-form"]} >
             {contextHolder}
             <div className={styles["form-con"]}>
-                <h2>Edit Form</h2>
+                <h2>編集</h2>
                 <div className={styles["form-group"]}>
                     <label htmlFor="nft_name">logo:</label>
                     {/* <input type="text" id="logo" name="logo" value={formData.spend} onChange={handleInputChange} required /> */}
@@ -133,7 +133,7 @@ const EventForm: React.FC<EventFormProps> = ({ event, onSubmit, onCancel }) => {
                             <img src={previewUrl || "/placeholder.svg"} alt="Preview" />
                             <div className={styles.imageActions}>
                                 <button onClick={handleButtonClick} className={styles.editButton}>
-                                    更改图片
+                                画像を変更する
                                 </button>
                                 {/* <button onClick={handleRemoveImage} className={styles.removeButton}>
                                     删除图片
@@ -142,7 +142,7 @@ const EventForm: React.FC<EventFormProps> = ({ event, onSubmit, onCancel }) => {
                         </div>
                     ) : (
                         <button onClick={handleButtonClick} className={styles.uploadButton}>
-                            选择图片
+                            画像を選択
                         </button>
                     )}
                 </div>
@@ -151,23 +151,23 @@ const EventForm: React.FC<EventFormProps> = ({ event, onSubmit, onCancel }) => {
 
 
                 <div className={styles["form-group"]}>
-                    <label htmlFor="nft_name">nft_name:</label>
+                    <label htmlFor="nft_name">プロジェクト名:</label>
                     <input type="text" id="nft_name" name="nft_name" value={formData.nft_name} onChange={handleInputChange} required />
                 </div>
                 <div className={styles["form-group"]}>
-                    <label htmlFor="nft_address">nft_address:</label>
+                    <label htmlFor="nft_address">NFTスマートコントラクトアドレス:</label>
                     <input type="text" id="nft_address" name="nft_address" value={formData.nft_address} onChange={handleInputChange} required />
                 </div>
                 <div className={styles["form-group"]}>
-                    <label htmlFor="chain">chain:</label>
+                    <label htmlFor="chain">BlockChain:</label>
                     <input type="text" id="chain" name="chain" value={formData.chain} onChange={handleInputChange} required />
                 </div>
                 <div className={styles["form-group"]}>
-                    <label htmlFor="info">infoduction:</label>
+                    <label htmlFor="info">プロジェクト紹介:</label>
                     <textarea id="info" name="info" value={formData.info} onChange={handleInputChange} required />
                 </div>
                 <div className={styles["form-group"]}>
-                    <label htmlFor="start_timestamp">Start Time:</label>
+                    <label htmlFor="start_timestamp">開始時間:</label>
                     <input
                         type="datetime-local"
                         id="start_timestamp"
@@ -178,7 +178,7 @@ const EventForm: React.FC<EventFormProps> = ({ event, onSubmit, onCancel }) => {
                     />
                 </div>
                 <div className={styles["form-group"]}>
-                    <label htmlFor="end_timestamp">End Time:</label>
+                    <label htmlFor="end_timestamp">終了時間:</label>
                     <input
                         type="datetime-local"
                         id="end_timestamp"
@@ -190,10 +190,10 @@ const EventForm: React.FC<EventFormProps> = ({ event, onSubmit, onCancel }) => {
                 </div>
                 <div className={styles["submit-buttons"]} >
                     <div className={styles["submit-button"]} onClick={handleSubmit} >
-                        Submit
+                    提出
                     </div>
                     <div className={styles["submit-button"]} onClick={onSubmit}>
-                        Calcle
+                    キャンセル
                     </div>
                 </div>
 

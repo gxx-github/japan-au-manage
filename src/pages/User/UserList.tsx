@@ -18,10 +18,10 @@ const UserList: React.FC<UserListProps> = ({ users, onEdit ,onDelet}) => {
       <table>
         <thead>
           <tr>
-            <th>Num</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Actions</th>
+            <th>番号</th>
+            <th>ユーザー名</th>
+            <th>パスワード</th>
+            <th>操作</th>
           </tr>
         </thead>
         <tbody>
@@ -37,19 +37,19 @@ const UserList: React.FC<UserListProps> = ({ users, onEdit ,onDelet}) => {
                   if(user.name !== userInfo || user.name!==localStorage.getItem('user')){
                     onEdit(user)
                   }
-                }} disabled={user.name === userInfo || user.name===localStorage.getItem('user')}>Edit</button>
+                }} className={user.name === userInfo || user.name===localStorage.getItem('user')?'disabled':""  }  disabled={user.name === userInfo || user.name===localStorage.getItem('user')}>編集</button>
                 <button onClick={() => {
                   if(user.name !== userInfo || user.name!==localStorage.getItem('user')){
                     onDelet(user,user.name)
                   }
-                }} className={"cancel-button"} disabled={user.name === userInfo || user.name!==localStorage.getItem('user')}>Delet</button>
+                }} className={user.name === userInfo || user.name===localStorage.getItem('user')?'disabled':"cancel-button"  } disabled={user.name === userInfo || user.name===localStorage.getItem('user')}>削除</button>
               </td>
             </tr>
           )) 
         }
         </tbody>
       </table>
-      {!users && <div className="empty">No users found.</div>}
+      {!users && <div className="empty">ユーザーが見つかりません</div>}
     </div>
   );
 };

@@ -68,7 +68,7 @@ const EventList: React.FC = () => {
             .then((res) => {
                 messageApi.open({
                     type: 'success',
-                    content: '删除成功',
+                    content: '削除されました',
                 });
                 getNftListQuery(curChooise)
             })

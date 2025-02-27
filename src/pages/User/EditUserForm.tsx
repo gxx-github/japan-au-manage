@@ -27,7 +27,7 @@ interface EditUserFormProps {
   
     return (
       <div className="form-container">
-        <h2>Edit User</h2>
+        <h2>編集</h2>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -51,9 +51,9 @@ interface EditUserFormProps {
             </span>
           </div>
           <div className="form-actions">
-          <button type="submit">Update User</button>
+          <button type="submit">編集</button>
           <button type="button" onClick={onCancel} className="cancel-button">
-            Cancel
+          キャンセル
           </button>
         </div>
         </form>
