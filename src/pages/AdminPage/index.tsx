@@ -47,7 +47,7 @@ const AdminPage: React.FC = () => {
             onClick={() => setActiveMenu("dashboard")}
           >
             <div className={styles.menuIcon}>📊</div>
-            {!collapsed && <span>プレビュー</span>}
+            {!collapsed && <span>プロジェクト一覧</span>}
           </div>
 
           <div
@@ -55,7 +55,7 @@ const AdminPage: React.FC = () => {
             onClick={() => setActiveMenu("user")}
           >
             <div className={styles.menuIcon}>📝</div>
-            {!collapsed && <span>ユーザーリスト</span>}
+            {!collapsed && <span>ユーザ一覧</span>}
           </div>
 
           {/* <div

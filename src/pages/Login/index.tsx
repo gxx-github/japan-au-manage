@@ -61,8 +61,6 @@ const LoginPage: React.FC = () => {
           content:err.message ,
         });
         localStorage.setItem('isLogin', 'false')
-
-
       });
   }
 

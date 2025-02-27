@@ -88,7 +88,7 @@ messageApi.open({
       <form className={styles["upload-form"]} onSubmit={handleSubmit}>
         <h2>プロジェクト追加</h2>
         <div className={styles["form-group"]}>
-          <label htmlFor="nft_name">logo:</label>
+          <label htmlFor="nft_name">Logo:(w:204,h:68,{'size<=2M'})</label>
           {/* <input type="text" id="logo" name="logo" value={formData.logo} onChange={handleInputChange} required /> */}
           <input type="file" accept="image/*"  name="logo"  onChange={handleFileChange} ref={fileInputRef} required />
          {  formData.logo &&  <img src={formData.logo} alt="" className={styles.imgShow} /> }
@@ -136,7 +136,7 @@ messageApi.open({
           <input type="text" id="access_token" name="access_token" value={formData.access_token} onChange={handleInputChange} required />
         </div> */}
         <button type="submit" className={styles["submit-button"]}>
-        提出
+        確認
         </button>
       </form>
 
