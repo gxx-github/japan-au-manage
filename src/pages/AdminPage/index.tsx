@@ -21,11 +21,11 @@ const AdminPage: React.FC = () => {
     document.cookie = `access_token=${encodeURIComponent('')}`
     document.cookie = `access_name=`;
 
-    history.push('/login')
+    history.push('/')
   }
   useEffect(() => {
       if(localStorage.getItem('isLogin')!== 'true'){
-        history.push('/login')
+        history.push('/')
       }
     return () => {
     }
@@ -73,7 +73,7 @@ const AdminPage: React.FC = () => {
             history.push('/uploadForm')
         }}>
             {
-                !collapsed ? 'Add Project' : '➕'
+                !collapsed ? 'プロジェクト追加' : '➕'
             }
                 
             </div>
@@ -84,16 +84,11 @@ const AdminPage: React.FC = () => {
         {/* 顶部标头 */}
         <div className={styles.header}>
           <div className={styles.breadcrumb}>
-            {/* 首页 / {activeMenu === "dashboard" && "仪表盘"}
-            {activeMenu === "user" && "用户管理"}
-            {activeMenu === "products" && "产品管理"}
-            {activeMenu === "orders" && "订单管理"}
-            {activeMenu === "settings" && "系统设置"} */}
           </div>
           <div className={styles.userInfo}>
             <span className={styles.username}>{ userInfo || localStorage.getItem('user')  }</span>
             <div className={styles.logoutBtn} onClick={handleLogout}>
-              退出
+            サインアウト
             </div>
           </div>
         </div>
