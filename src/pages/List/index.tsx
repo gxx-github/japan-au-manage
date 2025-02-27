@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import type { Event } from "./Event"
 import styles from "./index.less"
 import EventItem from "./EventItem"
@@ -9,11 +9,13 @@ import EventForm from "./EventForm"
 import { fetchDelet, fetchGetNftList } from "@/api/home";
 import { history } from "umi";
 import { message } from "antd";
+import { InfoContext } from "@/components/InfoProvider"
 
 
 const EventList: React.FC = () => {
     const TabList = ['Upcoming', 'Live', 'Ended']
-    const [curChooise, setcurChooise] = useState(0)
+        const { curChooise,setcurChooise }: any = useContext(InfoContext);
+    
     const [messageApi, contextHolder] = message.useMessage();
 
     const [events, setEvents] = useState<Event[]>([])
@@ -33,7 +35,6 @@ const EventList: React.FC = () => {
             .then((res) => {
                 const data = res.data;
                 const { nft } = data
-                //   setshowListData(nft)
                 setEvents(nft)
 
             })
@@ -82,16 +83,14 @@ const EventList: React.FC = () => {
     }
     const handleDodnLoadEvent = async (id: number, address: string) => {
         const downDataParams = {
-            nft_id: Number(id), // Convert to Unix timestamp
-            // access_token: '3UTiPP5EqDWGdyb3FYDBl',
+            nft_id: Number(id),
             address: address
         };
         try {
-            const response = await fetch("/api/privasea/export", {
+            const response = await fetch(`https://api.crypato.com/api/privasea/export`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    access_token: `${localStorage.getItem('token')}`,
                     // 如果需要，在这里添加认证头
                 },
                 body: JSON.stringify(downDataParams),
@@ -111,32 +110,18 @@ const EventList: React.FC = () => {
             window.URL.revokeObjectURL(url)
         } catch (error) {
             console.error("Download failed:", error)
-            alert("Download failed. Please try again later.")
+            messageApi.open({
+                type: 'error',
+                content: 'Download failed. Please try again later.',
+            });
         } finally {
 
         }
     }
 
-    useEffect(() => {
-    
-    //   if(localStorage.getItem('isLogin')!== 'true'){
-    //     history.push('/login')
-    //   }
-    
-      return () => {
-        
-      }
-    }, [localStorage.getItem('isLogin')])
-    
-
     return (
         <div className={styles.eventList}>
             {contextHolder}
-            {/* <button onClick={() => {
-                history.push('/uploadForm')
-            }} className={styles.addButton}>
-                Add Upload Nft
-            </button> */}
             <div className={styles.tabs}>
                 {
                     TabList.map((item, index) => {

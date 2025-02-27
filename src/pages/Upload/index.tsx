@@ -13,7 +13,7 @@ interface FormData {
   start_timestamp: number
   end_timestamp: number
   nft_address: string
-  chain:string
+  chain: string
 }
 
 const UploadForm: React.FC = () => {
@@ -26,7 +26,7 @@ const UploadForm: React.FC = () => {
     start_timestamp: 0,
     end_timestamp: 0,
     nft_address: '',
-    chain:''
+    chain: ''
   })
   const fileInputRef = useRef<HTMLInputElement>(null)
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -53,10 +53,10 @@ const UploadForm: React.FC = () => {
         history.push('/admin')
       })
       .catch((err) => {
-messageApi.open({
-  type: 'error',
-  content: err.message,
-});
+        messageApi.open({
+          type: 'error',
+          content: '只能添加未来时间的项目 => 未来の日時の項目のみ追加できます。',
+        });
       });
   }
 
@@ -75,9 +75,9 @@ messageApi.open({
     }
   }
   useEffect(() => {
-      if(localStorage.getItem('isLogin')!== 'true'){
-        history.push('/login')
-      }
+    if (localStorage.getItem('isLogin') !== 'true') {
+      history.push('/')
+    }
     return () => {
     }
   }, [localStorage.getItem('isLogin')])
@@ -90,8 +90,8 @@ messageApi.open({
         <div className={styles["form-group"]}>
           <label htmlFor="nft_name">Logo:(w:204,h:68,{'size<=2M'})</label>
           {/* <input type="text" id="logo" name="logo" value={formData.logo} onChange={handleInputChange} required /> */}
-          <input type="file" accept="image/*"  name="logo"  onChange={handleFileChange} ref={fileInputRef} required />
-         {  formData.logo &&  <img src={formData.logo} alt="" className={styles.imgShow} /> }
+          <input type="file" accept="image/*" name="logo" onChange={handleFileChange} ref={fileInputRef} required />
+          {formData.logo && <img src={formData.logo} alt="" className={styles.imgShow} />}
         </div>
         <div className={styles["form-group"]}>
           <label htmlFor="nft_name">プロジェクト名:</label>
@@ -136,7 +136,7 @@ messageApi.open({
           <input type="text" id="access_token" name="access_token" value={formData.access_token} onChange={handleInputChange} required />
         </div> */}
         <button type="submit" className={styles["submit-button"]}>
-        確認
+          確認
         </button>
       </form>
 
