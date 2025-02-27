@@ -65,7 +65,7 @@ const EventForm: React.FC<EventFormProps> = ({ event, onSubmit, onCancel }) => {
             .then((res) => {
                 messageApi.open({
                     type: 'success',
-                    content: '修改成功',
+                    content: '変更に成功しました',
                 });
                 setTimeout(() => {
                     onSubmit(e)

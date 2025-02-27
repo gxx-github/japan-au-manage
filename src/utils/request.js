@@ -10,7 +10,7 @@ const service = axios.create({
     // access_token: `${localStorage.getItem('token')}`,
 
   },
-  // withCredentials: true, // 跨域时需要��带cookie
+  withCredentials: true, // 跨域时需要��带cookie
 });
 
 let requestHeaders;

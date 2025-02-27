@@ -42,11 +42,11 @@ const LoginPage: React.FC = () => {
           generateHash(token).then(hash => {
             messageApi.open({
               type: 'success',
-              content: '登录成功',
+              content: 'ログインに成功しました',
             });
             localStorage.setItem('token', hash)
-            document.cookie = `access_token=${encodeURIComponent(hash)}`;
-            document.cookie = `access_name=${username}`;
+            document.cookie = `access_token=${encodeURIComponent(hash)};Secure; SameSite=None;`;
+            document.cookie = `access_name=${username};Secure; SameSite=None;`;
             localStorage.setItem('user', username)
             localStorage.setItem('isLogin', 'true')
             history.push('/admin')

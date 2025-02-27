@@ -86,7 +86,7 @@ messageApi.open({
     <div className={styles['uploadDom']}>
       {contextHolder}
       <form className={styles["upload-form"]} onSubmit={handleSubmit}>
-        <h2>Add</h2>
+        <h2>プロジェクト追加</h2>
         <div className={styles["form-group"]}>
           <label htmlFor="nft_name">logo:</label>
           {/* <input type="text" id="logo" name="logo" value={formData.logo} onChange={handleInputChange} required /> */}
@@ -94,23 +94,23 @@ messageApi.open({
          {  formData.logo &&  <img src={formData.logo} alt="" className={styles.imgShow} /> }
         </div>
         <div className={styles["form-group"]}>
-          <label htmlFor="nft_name">nft_name:</label>
+          <label htmlFor="nft_name">プロジェクト名:</label>
           <input type="text" id="nft_name" name="nft_name" value={formData.nft_name} onChange={handleInputChange} required />
         </div>
         <div className={styles["form-group"]}>
-          <label htmlFor="nft_address">nft_address:</label>
+          <label htmlFor="nft_address">NFTスマートコントラクトアドレス:</label>
           <input type="text" id="nft_address" name="nft_address" value={formData.nft_address} onChange={handleInputChange} required />
         </div>
         <div className={styles["form-group"]}>
-          <label htmlFor="chain">chain:</label>
+          <label htmlFor="chain">BlockChain:</label>
           <input type="text" id="chain" name="chain" value={formData.chain} onChange={handleInputChange} required />
         </div>
         <div className={styles["form-group"]}>
-          <label htmlFor="info">infoduction:</label>
+          <label htmlFor="info">プロジェクト紹介:</label>
           <textarea id="info" name="info" value={formData.info} onChange={handleInputChange} required />
         </div>
         <div className={styles["form-group"]}>
-          <label htmlFor="start_timestamp">Start Time:</label>
+          <label htmlFor="start_timestamp">開始時間:</label>
           <input
             type="datetime-local"
             id="start_timestamp"
@@ -121,7 +121,7 @@ messageApi.open({
           />
         </div>
         <div className={styles["form-group"]}>
-          <label htmlFor="end_timestamp">End Time:</label>
+          <label htmlFor="end_timestamp">終了時間:</label>
           <input
             type="datetime-local"
             id="end_timestamp"
@@ -136,7 +136,7 @@ messageApi.open({
           <input type="text" id="access_token" name="access_token" value={formData.access_token} onChange={handleInputChange} required />
         </div> */}
         <button type="submit" className={styles["submit-button"]}>
-          Submit
+        提出
         </button>
       </form>
 
