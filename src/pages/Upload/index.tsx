@@ -55,7 +55,7 @@ const UploadForm: React.FC = () => {
       .catch((err) => {
         messageApi.open({
           type: 'error',
-          content: '只能添加未来时间的项目 => 未来の日時の項目のみ追加できます。',
+          content: err.message,
         });
       });
   }
