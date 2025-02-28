@@ -55,7 +55,7 @@ const UploadForm: React.FC = () => {
       .catch((err) => {
         messageApi.open({
           type: 'error',
-          content: err.message,
+           content: err.response.data.error || err.message,
         });
       });
   }

@@ -73,10 +73,10 @@ const EventList: React.FC = () => {
                 });
                 getNftListQuery(curChooise)
             })
-            .catch(() => {
+            .catch((err) => {
                 messageApi.open({
                     type: 'error',
-                    content: 'request error',
+                    content: err.response.data.error || err.message,
                 });
 
             });

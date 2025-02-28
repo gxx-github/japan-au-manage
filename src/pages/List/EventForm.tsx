@@ -26,6 +26,7 @@ interface EventFormProps {
 const EventForm: React.FC<EventFormProps> = ({ event, onSubmit, onCancel }) => {
     const [previewUrl, setPreviewUrl] = useState<string | null>(event?.spend || null)
     const fileInputRef = useRef<HTMLInputElement>(null)
+console.log(event,'enent');
 
 
     const [formData, setFormData] = useState<FormData>({
@@ -59,6 +60,7 @@ const EventForm: React.FC<EventFormProps> = ({ event, onSubmit, onCancel }) => {
             logo: formData.spend,
             start_timestamp: formData.start_timestamp, // Convert to Unix timestamp
             end_timestamp: formData.end_timestamp, // Convert to Unix timestamp
+            id:event?.id
         };
         
         fetchCreatNft(formDataToSubmit)
@@ -71,10 +73,10 @@ const EventForm: React.FC<EventFormProps> = ({ event, onSubmit, onCancel }) => {
                     onSubmit(e)
                 }, 1000);
             })
-            .catch(() => {
+            .catch((err) => {
                 messageApi.open({
                     type: 'error',
-                    content: 'request error',
+                    content: err.response.data.error || err.message,
                 });
             });
     }

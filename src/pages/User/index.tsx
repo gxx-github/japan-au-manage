@@ -39,7 +39,7 @@ const UserDom: React.FC = () => {
       .catch((err) => {
         messageApi.open({
           type: 'error',
-          content: err.message,
+           content: err.response.data.error || err.message,
         });
       });
     // setShowAddForm(false); // 添加用户后隐藏表单
@@ -65,7 +65,7 @@ const UserDom: React.FC = () => {
       .catch((err) => {
         messageApi.open({
           type: 'error',
-          content: err.message,
+          content: err.response.data.error || err.message,
         });
       });
     setEditingUser(null);
@@ -89,7 +89,7 @@ const UserDom: React.FC = () => {
 
         messageApi.open({
           type: 'error',
-          content: err.message,
+          content: err.response.data.error || err.message,
         });
       });
 
@@ -116,7 +116,7 @@ const UserDom: React.FC = () => {
       .catch((err) => {
         messageApi.open({
           type: 'error',
-          content: err.message,
+          content: err.response.data.error || err.message,
         });
         setUsers([])
       });
