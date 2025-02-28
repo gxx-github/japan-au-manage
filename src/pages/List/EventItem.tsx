@@ -21,10 +21,10 @@ const Eventevent: React.FC<EventeventProps> = ({ event, onEdit, onDelete, onDown
             <div className={styles.eventDom}  >
                 <div className={styles.leftDom} >
                     <img src={event.spend} alt="" />
-                    <div className={styles.start}>開始日時:<br />
+                    <div className={styles.start}>開始日時:
                         <span>{event.start_timestamp && moment(event.start_timestamp * 1000).format('YYYY-MM-DD HH:mm')}</span>
                     </div>
-                    <div className={styles.end} >終了日時:<br />
+                    <div className={styles.end} >終了日時:
                         <span>{event.end_timestamp && moment(event.end_timestamp * 1000).format('YYYY-MM-DD HH:mm')}</span></div>
                 </div>
                 <div className={styles.rightDom} >

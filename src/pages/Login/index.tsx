@@ -34,7 +34,7 @@ const LoginPage: React.FC = () => {
     }
     fetchLogin(Params)
       .then((res) => {
-       
+
         setuserInfo(username)
         if (res) {
           const { data } = res
@@ -60,11 +60,27 @@ const LoginPage: React.FC = () => {
       .catch((err) => {
         messageApi.open({
           type: 'error',
-          content:err.message ,
+          content: err.message,
         });
         localStorage.setItem('isLogin', 'false')
       });
   }
+  useEffect(() => {
+    // const cookies = document.cookie;
+    // 检查特定 Cookie 是否存在
+    // const access_tokenFlag = cookies.split(';').some(cookie => cookie.trim().startsWith(`access_token=`));
+    // const access_namelag = cookies.split(';').some(cookie => cookie.trim().startsWith(`access_name=`));
+    const userInfo = localStorage.getItem('user')
+    const tokenInfo = localStorage.getItem('token')
+
+    if (userInfo && tokenInfo) {
+      history.push('/admin')
+    }
+
+    return () => {
+
+    }
+  }, [])
 
   return (
     <div className={styles.loginContainer}>
@@ -87,7 +103,7 @@ const LoginPage: React.FC = () => {
             />
           </div>
           <button type="submit" className={styles.loginButton}>
-          ログイン
+            ログイン
           </button>
         </form>
       </div>

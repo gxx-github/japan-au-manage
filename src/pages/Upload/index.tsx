@@ -48,7 +48,7 @@ const UploadForm: React.FC = () => {
       .then((res) => {
         messageApi.open({
           type: 'success',
-          content: '领取成功',
+          content: '',
         });
         history.push('/admin')
       })

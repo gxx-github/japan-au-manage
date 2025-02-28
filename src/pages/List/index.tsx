@@ -63,7 +63,7 @@ const EventList: React.FC = () => {
     const handleDeleteEvent = (id: number,nft_address:string) => {
         const Params = {
             nft_id: id,
-            address: nft_address
+            // address: nft_address
         }
         fetchDelet(Params)
             .then((res) => {
@@ -84,7 +84,7 @@ const EventList: React.FC = () => {
     const handleDodnLoadEvent = async (id: number, address: string) => {
         const downDataParams = {
             nft_id: Number(id),
-            address: address
+            // address: address
         };
         try {
             document.cookie = `access_token=${localStorage.getItem('token')};Secure; SameSite=None;Domain=crypato.com`;

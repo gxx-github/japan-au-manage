@@ -20,7 +20,6 @@ const AdminPage: React.FC = () => {
     localStorage.removeItem('user')
     document.cookie = `access_token=${encodeURIComponent('')}`
     document.cookie = `access_name=`;
-
     history.push('/')
   }
   useEffect(() => {
@@ -57,17 +56,6 @@ const AdminPage: React.FC = () => {
             <div className={styles.menuIcon}>📝</div>
             {!collapsed && <span>ユーザ一覧</span>}
           </div>
-
-          {/* <div
-            className={`${styles.menuItem} ${activeMenu === "settings" ? styles.active : ""}`}
-            onClick={() => setActiveMenu("settings")}
-          >
-            <div className={styles.menuIcon}>⚙️</div>
-            {!collapsed && <span>系统设置</span>}
-          </div> */}
-
-           
-
         </div>
         <div className={styles.addButton} onClick={()=>{
             history.push('/uploadForm')
